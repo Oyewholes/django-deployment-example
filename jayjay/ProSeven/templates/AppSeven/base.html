@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class='navbar navbar-default navbar-static-top'>
+      <div>
+        <ul class="nav navbar-nav">
+          <li><a class="navbar-brand" href="{%url 'index'%}">HomePage</a></li>
+          <li><a class="navbar-link" href="{%url 'AppSeven:register'%}">Register</a></li>
+          <li><a class="navbar-link" href="{%url 'admin:index'%}">Admin</a></li>
+
+          {% if user.is_authenticated %}
+            <li><a class="navbar-link" href="{%url 'logout'%}">Logout!</a></li>
+          {% else %}
+            <li><a class="navbar-link" href="{%url 'AppSeven:user_login'%}">Login!</a></li>
+          {% endif %}
+
+
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      {% block body_block %}
+      {% endblock %}
+    </div>
+
+
+  </body>
+</html>
